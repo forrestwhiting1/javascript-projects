@@ -14,8 +14,14 @@ let shuttleSpeed = 15000;
 
 
 // c) If shuttleSpeed is > 17,500, print "ALERT: Escape velocity reached!" Else if shuttleSpeed is < 8000, print "ALERT: Cannot maintain orbit!" Else print "Stable speed".
-
+if (engineIndicatorLight === "green") {
+    console.log("engines have started");
+ } else if (engineIndicatorLight === "green blinking") {
+    console.log("engines are preparing to start");
+ } else {
+    console.log("engines are off");
+ }
 
 // 4) PREDICT: Do the code blocks shown in the 'predict.txt' file produce the same result?
 
-console.log(/* "Yes" or "No" */);
+console.log("Yes");

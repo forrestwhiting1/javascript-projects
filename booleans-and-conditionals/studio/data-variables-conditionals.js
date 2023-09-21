@@ -40,7 +40,7 @@ if (weatherStatus = "clear") {
     console.log("ready to launch");
 }
 // Verify shuttle launch can proceed based on above conditions
-if ((astronautCount <= 7) && (astronautStatus = "ready") && (totalMassKg < maxMassLimit) && (fuelTempCelsius >= -300 || fuelTempCelsius <= -150) && (fuelLevel = "100%") && (weatherStatus = "clear")) {
+if ((astronautCount <= 7) && (astronautStatus === "ready") && (totalMassKg < maxMassLimit) && (fuelTempCelsius >= -300 || fuelTempCelsius <= -150) && (fuelLevel === "100%") && (weatherStatus === "clear")) {
     console.log("All systems are a go! Initiating space shuttle launch sequence.");
 } else {
     console.log("Not safe for liftoff:Liftoff Aborted")

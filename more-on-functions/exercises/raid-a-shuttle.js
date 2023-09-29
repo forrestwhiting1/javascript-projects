@@ -24,6 +24,38 @@ let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
+//Exercise Code//
+let legalFuel = function(fuel) {
+  let maxFuelToBorrow = 100000 - 50001;
+  let actualFuelToBorrow = fuel - 100000;
+  return actualFuelToBorrow < maximumFuelToBorrow ? actualFuelToBorrow : maximumFuelToBorrow;
+};
+fuelLevel -= legalFuel(fuelLevel);
+let liberateCargo = function(cargoArray) {
+  let swag = [];
+  swag.push(cargoArray[cargoArray.indexOf('gold')]);
+  swag.push(cargoArray[cargoArray.indexOf('AE-35 unit')]);
+  cargoArray[cargoArray.indexOf('gold')] = 'rocks';
+  cargoArray[cargoArray.indexOf('AE-35 unit')] = 'dust';
+  return swag;
+};
+
+function irs(fuelLevel, cargoHold) {
+  let borrowedFuel = legalFuel(fuelLevel);
+  let borrowedCargo = liberateCargo(cargoHold);
+  return `Raided ${legalFuel} kg of fuel from the tanks, and stole ${borrowedCargo[0]} and ${borrowedCargo[1]} from the cargo hold.`;
+}
+
+fuelLevel -= legalFuel(fuelLevel);
+let borrowedItems = liberateCargo(cargoHold);
+
+console.log("Fuel level: " + checkFuel(fuelLevel));
+console.log("Hold status: " + holdStatus(cargoHold));
+console.log(irs(fuelLevel, cargoHold));
+
+
+
+
 /* Steal some fuel from the shuttle:
  * /
  
@@ -53,5 +85,6 @@ console.log("Hold status: " + holdStatus(cargoHold));
 	
 //b). Call your anonymous fuel and cargo functions from within irs.
 
-//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+//c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."//
+//
 
